@@ -1,6 +1,26 @@
-### This project is for the [DevOps Bootcamp](https://www.techworld-with-nana.com/devops-bootcamp) for "Operating Systems & Linux Basics" Module ###
+###### This project is for the [DevOps Bootcamp](https://www.techworld-with-nana.com/devops-bootcamp) for "Operating Systems & Linux Basics" Module ###
+
+###### Ubuntu - Redhat - Centos distributions
+
+Une distribution Linux est un système d'exploitation fabriqué à partir d'une collection de logiciels basée sur le noyau
+Linux et souvent sur un système de gestion de paquets. Le système d'exploitation Linux comprend :
+
+● Linux Kernel ● Shell utilities ● Graphical desktop environment and more.
+
+- Sont les 2 distributions linux les plus utilisées
+- Redhat est payant, mais Centos est basé dessus et gratuit
+- Ubuntu est basée sur Debian
+
+[Downloads virtual box](https://www.virtualbox.org/wiki/Downloads)
+
+[Ubuntu distribution](https://ubuntu.com/#download)
+
+###### Local VM password 
+
+- qwerty
+
 <br />
-![Linux Icon for Linux Module](/linux.png "OS & Linux Basics Module")
+![Linux Icon for Linux Module](./linux.png "OS & Linux Basics Module")
 
 **Commands used in the videos:**
 
