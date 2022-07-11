@@ -15,7 +15,13 @@ Linux et souvent sur un système de gestion de paquets. Le système d'exploitati
 
 [Ubuntu distribution](https://ubuntu.com/#download)
 
-###### Local VM password 
+- `sudo apt-get install virtualbox-guest-additions-iso` pour installer des drivers supplémentaires pour le plein écran,
+  double click pour lancer le disque, ouvrir un terminal à l'emplacement et
+  `sudo bash VBoxGuestAdditions.run`, redémarre la vm
+
+- `Snaphot` es une photo de l'installation clean si jamais y a un problème
+
+###### Local VM password
 
 - qwerty
 
@@ -29,9 +35,11 @@ Linux et souvent sur un système de gestion de paquets. Le système d'exploitati
 <br />
 
 General Operations:
+
 - `clear` = Clears the terminal
 
 Directory Operatings:
+
 - `pwd` = Show current directory. Example Output: `/home/nana`
 - `ls` = List folders and files. Example Output: `Desktop  Downloads  Pictures  Documents`
 - `cd [dirname]` = Change directory to [dir]
@@ -39,12 +47,14 @@ Directory Operatings:
 - `cd ..` = Go up a directory
 
 File Operations:
+
 - `touch [filename]` = Create [filename]
 - `rm [filename]` = Delete [filename]
 - `rm -r [dirname]` = Delete a non-empty directory and all the files in it
 - `rm -d [dirname]` or `rmdir [dirname]` = Delete an empty directory
 
 Navigating in the File System:
+
 - `cd usr/local/bin` = Navigate multiple dirs (relative path - relative to current dir). Move to bin directory
 - `cd ../..` = Move up 2 hierarchies, so go to 'usr' directory
 - `cd /usr` = Alternative to go to 'usr' directly (absolute path)
@@ -54,11 +64,13 @@ Navigating in the File System:
 - `ls /etc/network` = List folders and files of 'network' directory
 
 More File and Directory Operations
+
 - `mv [filename] [new_filename]` = Rename the file to a new file name
 - `cp -r [dirname] [new_dirname]` = Copy dirname to new_dirname recursively meaning including the files
 - `cp [filename] [new_filename]` = Copy filename to new_filename
 
 Some more useful commands
+
 - `ls -R [dirname]` = Show dirs and files but also sub dirs and files
 - `history` = Gives a list of all past commands typed in the current terminal session
 - `history 20` = Show list of last 20 commands
@@ -69,16 +81,27 @@ Some more useful commands
 - `cat [filename]` = Display the file content
 - `cat .bash_history` = Example 1: Display the file content
 - `cat Documents/java-app/Readme.md` = Example 2: Display the file content
- 
+
 Display OS Information
+
 - `uname -a` = Show system and kernel
-- `cat /etc/os-release` =  Show OS information
+- `cat /etc/os-release` = Show OS information
 - `lscpu` = Display hardware information, e.g. how many CPU you have etc.
 - `lsmem` = Display memory information
 
 Execute commands as superuser
+
 - `sudo [some command]` = Allows regular users to run programs with the security privileges of the superuser or root
 - `su - admin` = Switch from nana user to admin
+
+Other commands
+
+- `df -hi -all` = Display information about file system and disk space usage
+- `man ls` = Show help about the command
+- `Help, Man Pages (man, type, help, apropos)` = Some others help commands
+- `sudo apt install net-tools && ifconfig` = The ifconfig utility is used to assign an address to a network interface
+  and/or configure network interface parameters.
+
 </details>
 
 ******
@@ -88,18 +111,21 @@ Execute commands as superuser
 <br />
 
 APT Package Manager:
+
 - `sudo apt search [package_name]` = Search for a given package
 - `sudo apt install [package_name]` = Install a given package
 - `sudo apt install [package_name] [package_name2]` = Install multiple packages with one command
 - `sudo apt remove [package_name]` = Remove installed package
 - `sudo apt update` = Updates the package index. Pulls the latest change sfrom the APT repositories
+- `sudo apt full-upgrade` = Upgrade all apps to the latest version
 
 APT-GET Package Manager:
+
 - `sudo apt-get install [package_name]` = Install package with apt-get package manager
 
 SNAP Package Manager:
-- `sudo snap install [package_name]` = Install a given package
 
+- `sudo snap install [package_name]` = Install a given package installinstall
 
 </details>
 
@@ -110,13 +136,16 @@ SNAP Package Manager:
 <br />
 
 Install Vim, if it's not available:
+
 - `sudo apt install vim` = Search for a given package
 
 There are 2 Modes:
+
 - Command Mode: default mode, everything is interpreted as a command
 - Insert Mode: Allows to enter text
 
 Vim Commands:
+
 - `vim [filename]` = Open file with Vim
 - `Press i key` = Switch to Insert Mode
 - `Press esc key` = Switch to Command Mode
@@ -145,15 +174,20 @@ Vim Commands:
  <br />
 
 **Locations of Access Control Files:**
+
 - /etc/passwd
 - /etc/shadow
 - /etc/group
+
 <!-- -->
+
 - `sudo adduser [username]` = Create a new user
 - `sudo passwd [username]` = Change password of a user
 - `su - [username]` = Login as username ('su' = short for substitute or switch user)
 - `su -` = Login as root
+
 <!-- -->
+
 - `sudo groupadd [groupname]` = Create new group (System assigns next available GID)
 - `sudo adduser [username]` = Switch to Insert Mode
 
@@ -166,7 +200,8 @@ Vim Commands:
 - `sudo delgroup tom` = Removes group 'tom'
 - `groups` = Display groups the current logged in user belongs to
 - `groups [username]` = Display groups of the given username
-- `sudo useradd -G devops nicole` = Create 'nicole' user and add nicole to 'devops' group (-G = secondary group, not primary)
+- `sudo useradd -G devops nicole` = Create 'nicole' user and add nicole to 'devops' group (-G = secondary group, not
+  primary)
 - `sudo gpasswd -d nicole devops` = Removes user 'nicole' from group 'devops'
 
 </details>
@@ -180,12 +215,14 @@ Vim Commands:
 - `ls -l` = Print files in a long listing format, you can see ownership and permissions of the file
 
 **Ownership:**
+
 - `sudo chown [username]:[groupname] [filename]` = Change ownership
 - `sudo chown tom:admin test.txt` = Change ownership of 'test.txt' file to 'tom' and group 'admin'
 - `sudo chown admin test.txt` = Change ownership of 'test.txt' 'admin' user
 - `sudo chgrp devops test.txt` = Make 'devops' group owner of test.txt file
 
 **Possible File Permissions (Symbolic):**
+
 - r = Read
 - w = Write
 - x = Execute
@@ -194,26 +231,31 @@ Vim Commands:
 **Change File Permissions for different owners**
 
 File Permissions can be changed for:
+
 - u = Owner
 - g = Group
 - o = Other (all other users)
 
 Minus (-) removes the permission
+
 - `sudo chmod -x api` = Takes 'execute' permission away for 'api' folder from all owners
-- `sudo chmod g-w config.yaml` = Takes 'write' permission away for 'config.yaml' file from the group 
+- `sudo chmod g-w config.yaml` = Takes 'write' permission away for 'config.yaml' file from the group
 
 Plus (+) adds permission
-- `sudo chmod g+x config.yaml` = Add 'execute' permission for 'config.yaml' file to the group 
-- `sudo chmod u+x script.sh` = Add 'execute' permission for 'script.sh' file to the user 
-- `sudo chmod o+x script.sh` = Add 'execute' permission for 'script.sh' file to other 
+
+- `sudo chmod g+x config.yaml` = Add 'execute' permission for 'config.yaml' file to the group
+- `sudo chmod u+x script.sh` = Add 'execute' permission for 'script.sh' file to the user
+- `sudo chmod o+x script.sh` = Add 'execute' permission for 'script.sh' file to other
 
 Change multiple permissions for an owner
+
 - `sudo chmod g=rwx config.yaml` = Assign 'read write execute' permissions to the group
 - `sudo chmod g=r-- config.yaml` = Assign only 'read' permission to the group
 
 Changing permissions with numeric values
 
-_Set permissions for all owners with 3 digits, 1 digit for each owner_ [Absolute vs Symbolic Mode](https://docs.oracle.com/cd/E19455-01/805-7229/6j6q8svd8/)
+_Set permissions for all owners with 3 digits, 1 digit for each
+owner_ [Absolute vs Symbolic Mode](https://docs.oracle.com/cd/E19455-01/805-7229/6j6q8svd8/)
 
 - 0 = No permission
 - 1 = Execute
@@ -223,10 +265,12 @@ _Set permissions for all owners with 3 digits, 1 digit for each owner_ [Absolute
 - 5 = Read + Execute
 - 6 = Read + Write
 - 7 = Read + Write + Execute
-<!-- -->
-- `sudo chmod 777 script.sh` = rwx (Read, Write and Execute) permission for everyone for file 'script.sh'
-- `sudo chmod 740 script.sh` = Give user all permissions (7), give group only read permission (4), give other no permission (0)
 
+<!-- -->
+
+- `sudo chmod 777 script.sh` = rwx (Read, Write and Execute) permission for everyone for file 'script.sh'
+- `sudo chmod 740 script.sh` = Give user all permissions (7), give group only read permission (4), give other no
+  permission (0)
 
 </details>
 
@@ -240,6 +284,7 @@ Create and open setup.sh file in vim editor: <br />
 `vim setup.sh`
 
 In setup.sh file:
+
 ```sh
 #!/bin/bash
 
@@ -265,6 +310,7 @@ bash setup.sh
  <br />
 
 **Variables:**
+
 ```sh
 #!/bin/bash
 
@@ -278,6 +324,7 @@ echo "here are all configuration files: $config_files"
 ```
 
 **Conditions:**
+
 ```sh
 #!/bin/bash
 
@@ -321,6 +368,7 @@ echo "here are all configuration files: $config_files"
 ```
 
 **User input:**
+
 ```sh
 #!/bin/bash
 
@@ -331,6 +379,7 @@ echo "thanks for your password $user_pwd"
 ```
 
 **Script Parameters:**
+
 ```sh
 #!/bin/bash
 
@@ -341,7 +390,6 @@ echo "user $1"
 echo "group $2"
 ```
 
-
 **Executing with script parameters:**
 
 `./example.sh name lastname # 2 params`
@@ -351,6 +399,7 @@ echo "group $2"
 `bash example name lastname`
 
 **Loops:**
+
 ```sh
 #!/bin/bash
 
@@ -393,6 +442,7 @@ while true
  <br />
 
 **Functions:**
+
 ```sh
 #!/bin/bash
 
@@ -471,12 +521,16 @@ echo "sum of 2 and 10 is $result"
 **Pipe & Less:**
 
 Pipe Command:
+
 - `|` = Pipe command = Pipes the output of the previous command as an input to the next command
 
 Less Command:
-- `less [filename]` = Displays the contents of a file or a command output, one page at a time. And allows to navigate forward and backward through the file
+
+- `less [filename]` = Displays the contents of a file or a command output, one page at a time. And allows to navigate
+  forward and backward through the file
 
 Different piping examples/use cases:
+
 - `cat /var/log/syslog | less` = Pipes the output of 'syslog' file to less program.
 - `ls /usr/bin | less` = Pipes the output of ls command to less program.
 - `history | less` = Pipes the output of history command to less program.
@@ -484,23 +538,31 @@ Different piping examples/use cases:
 **Pipe & Grep:**
 
 Grep Command:
+
 - `grep [pattern]` = Searches for a particular pattern of characters and displays all lines that contain that pattern
 
 More piping examples/use cases:
+
 - `history | grep sudo` = Look for any commands of history commands, which have 'sudo' word in it
 - `history | grep "sudo chmod"` = Look for any commands of history commands, which have 'sudo chmod' phrase in it
-- `history | grep sudo | less` = History output will pass output to grep and filter for 'sudo' and this output will again be piped or passed to less program
+- `history | grep sudo | less` = History output will pass output to grep and filter for 'sudo' and this output will
+  again be piped or passed to less program
 - `ls /usr/bin/ | grep java` = Filter ls output for java
 - `cat Documents/java-app/config.yaml | grep ports` = See all 'ports' occurences in config.yaml file
 
 **Redirects in Linux:**
+
 - `>` = Redirect Operator = Takes the output from the previous command and sends it to a file that you give
 
 Different redirects examples/use cases:
+
 - `history | grep sudo > sudo-commands.txt` = Redirect output into a 'sudo-commands.txt' file
-- `cat sudo-commands.txt > sudo-rm-commands.txt` = Redirect output of 'sudo-commands.txt' file into 'sudo-rm-commands.txt' file
-- `history | grep rm > sudo-rm-commands.txt` = Redirect output of filtered history commands into existing 'sudo-rm-commands.txt' file. Note: Contents of file will be _overwritten_
-- `history | grep rm >> sudo-rm-commands.txt` = Redirect output of filtered history commands into existing 'sudo-rm-commands.txt' file. Note: Contents of file will be _appended_
+- `cat sudo-commands.txt > sudo-rm-commands.txt` = Redirect output of 'sudo-commands.txt' file into '
+  sudo-rm-commands.txt' file
+- `history | grep rm > sudo-rm-commands.txt` = Redirect output of filtered history commands into existing '
+  sudo-rm-commands.txt' file. Note: Contents of file will be _overwritten_
+- `history | grep rm >> sudo-rm-commands.txt` = Redirect output of filtered history commands into existing '
+  sudo-rm-commands.txt' file. Note: Contents of file will be _appended_
 
 </details>
 
@@ -514,18 +576,24 @@ _Variables store information. Environment variables are available for the whole 
 _An environment variable consists of _name=value_ pair._
 
 **Existing Environment Variables:**
+
 - `SHELL=/bin/bash`= default shell program, in this case bash
 - `HOME=/home/nana`= current user's home directory
 - `USER=nana` = currently logged in user
+
 <!-- -->
+
 - `printenv` = List all environment variables
 - `printenv | less` = List all environment variables with less program
 - `printenv [environment variable]` = Display value of given environment variable, e.g. `printenv USER`
 - `printenv | grep USER` = Filter environment variables, which have 'USER' in the name
+
 <!-- -->
+
 - `echo $USER` = Print value of USER environment variable
 
 **Create own Environment Variables:**
+
 - `export DB_USERNAME=dbuser` = Set environment variable 'DB_USERNAME' with value 'dbuser'
 - `export DB_PASSWORD=secretpwdvalue` = Set environment variable 'DB_PASSWORD' with value 'secretpwdvalue'
 - `export DB_NAME=mydb` = Set environment variable 'DB_NAME' with value 'mydb'
@@ -533,6 +601,7 @@ _An environment variable consists of _name=value_ pair._
 - `export DB_NAME=newdbname` = Set environment variable 'DB_NAME' to new value 'newdbname'
 
 **Delete Environment Variables:**
+
 - `unset DB_NAME` = Delete variable with name 'DB_NAME'
 
 **Persisting Environment Variables:**
@@ -540,21 +609,25 @@ _An environment variable consists of _name=value_ pair._
 Persisting Environment Variables with shell specific configuration file:
 _Environment variables set in terminal are only available in the current terminal session._
 
-Add environment variables to the '~/.bashrc' file or your specific shell 'rc' file. Variables set in this file are loaded whenever a bash login shell is entered.
+Add environment variables to the '~/.bashrc' file or your specific shell 'rc' file. Variables set in this file are
+loaded whenever a bash login shell is entered.
+
 - `export DB_USERNAME=dbuser`
 - `export DB_PASSWORD=secretvl`
 - `export DB_NAME=mydb`
-In terminal again:
+  In terminal again:
 - `source ~/.bashcrc` = Load the new env vars into the current shell session
 
 Persisting Environment Variables system wide:
+
 - ~./bashrc = user specific
 - /etc/environment = system wide, meaning all users will have access to the variables
 
 **PATH Environment Variable:**
-- `PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin` = List of directories to executible files, separated by ':'. Tells the shell which directories to ssearch for the executable in response to our executed command
-- `PATH=$PATH:/home/nana` = Appending /home/nana folder to the existing $PATH value
 
+- `PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin` = List of directories to executible files,
+  separated by ':'. Tells the shell which directories to ssearch for the executable in response to our executed command
+- `PATH=$PATH:/home/nana` = Appending /home/nana folder to the existing $PATH value
 
 </details>
 
@@ -565,14 +638,17 @@ Persisting Environment Variables system wide:
 <br />
 
 Useful Networking Commands:
-- `ip`= one of the basic commands. For setting up new systems and assigning IPs to troubleshooting existing systems. Can show address information, manipulate routing, plus display network various devices, interfaces, and tunnels.
+
+- `ip`= one of the basic commands. For setting up new systems and assigning IPs to troubleshooting existing systems. Can
+  show address information, manipulate routing, plus display network various devices, interfaces, and tunnels.
 - `ifconfig`= for configuring and troubleshooting networks. It has since been replaced by the `ip` command
-- `netstat`= tool for printing network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
+- `netstat`= tool for printing network connections, routing tables, interface statistics, masquerade connections, and
+  multicast memberships
 - `ps aux` =
-  - ps = displays information about a selection of the active processes
-  - a = show processes for all users
-  - u = display the process's user/owner
-  - x = also show processes not attached to a terminal
+    - ps = displays information about a selection of the active processes
+    - a = show processes for all users
+    - u = display the process's user/owner
+    - x = also show processes not attached to a terminal
 - `nslookup` = Find DNS related query
 - `ping` = To check connectivity between two nodes
 
@@ -585,14 +661,17 @@ Useful Networking Commands:
 <br />
 
 Connecting via SSH: `ssh username@SSHserver`
+
 - `ssh root@159.89.14.94`= Connect with root user to 159.89.14.94 server address
 - `ssh-keygen -t rsa`= Create SSH Key Pair with 'rsa' algorithm. SSH Key Pair is stored to the default location `~/.ssh`
 - `ls .ssh/`= Display contents of .ssh folder, which has:
-  - `id_rsa` = Private Key
-  - `id_rsa.pub` = Public Key
-- `ssh -i .ssh/id_rsa root@159.89.14.94` = Connect with root user to 159.89.14.94 server address with specified private key file location (.ssh/id_rsa = default, but you can specify a different one like this)
+    - `id_rsa` = Private Key
+    - `id_rsa.pub` = Public Key
+- `ssh -i .ssh/id_rsa root@159.89.14.94` = Connect with root user to 159.89.14.94 server address with specified private
+  key file location (.ssh/id_rsa = default, but you can specify a different one like this)
 
 Two Files used by SSH:
+
 - `~/.ssh/known_hosts` = lets the client authenticate the server to check that it isn't connecting to an impersonator
 - `~/.ssh/authorized_keys` = lets the server authenticate the user
 
